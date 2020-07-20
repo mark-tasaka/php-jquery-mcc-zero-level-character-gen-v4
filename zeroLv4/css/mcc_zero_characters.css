@@ -51,109 +51,109 @@ Character 1
 
 #name0, #name1, #name2, #name3{
     position: absolute;
-    top: 68px;
+    top: 63px;
     left: 55px;
 }
 
 
 #profession0, #profession1, #profession2, #profession3{
     position: absolute;
-    top: 113px;
-    left: 55px;
+    top: 63px;
+    left: 270px;
 }
 
 
 #alignment0, #alignment1, #alignment2, #alignment3{
     position: absolute;
-    top: 68px;
-    left: 320px;
+    top: 96px;
+    left: 195px;
 }
 
 
 #sex0, #sex1, #sex2, #sex3{
     position: absolute;
-    top: 68px;
-    left: 245px;
+    top: 63px;
+    left: 210px;
 }
 
 
 #languages0, #languages1, #languages2, #languages3{
     position: absolute;
-    top: 575px;
-    left: 55px;
-    font-size: 0.8em;
-    width: 120px;
+    top: 185px;
+    left:  335px;
+	width: 120px;
+    font-size: 0.85em;
 }
 
 
 
 #strength0, #strength1, #strength2, #strength3{
     position:absolute;
-    top: 176px;
+    top: 180px;
     left: 250px;
 	font-size: 1.1em;
 }
 
 #strengthMod0, #strengthMod1, #strengthMod2, #strengthMod3{
     position:absolute;
-    top: 176px;
-    left: 275px;
+    top: 180px;
+    left: 285px;
 	font-size: 1.1em;
 }
 
 #agility0, #agility1, #agility2, #agility3{
     position:absolute;
-    top: 202px;
+    top: 206px;
     left: 250px;
 	font-size: 1.1em;
 }
 
 #agilityMod0, #agilityMod1, #agilityMod2, #agilityMod3{
     position:absolute;
-    top: 202px;
-    left: 275px;
+    top: 206px;
+    left: 285px;
 	font-size: 1.1em;
 }
 
 #stamina0, #stamina1, #stamina2, #stamina3{
     position:absolute;
-    top: 228px;
+    top: 232px;
     left: 250px;
 	font-size: 1.1em;
 }
 
 #staminaMod0, #staminaMod1, #staminaMod2, #staminaMod3{
     position:absolute;
-    top: 228px;
-    left: 275px;
+    top: 232px;
+    left: 285px;
 	font-size: 1.1em;
 }
 
 #personality0, #personality1, #personality2, #personality3{
     position:absolute;
-    top: 252px;
+    top: 257px;
     left: 250px;
 	font-size: 1.1em;
 }
 
 #personalityMod0, #personalityMod1, #personalityMod2, #personalityMod3{
     position:absolute;
-    top: 252px;
-    left: 275px;
+    top: 257px;
+    left: 285px;
 	font-size: 1.1em;
 }
 
 #intelligence0, #intelligence1, #intelligence2, #intelligence3{
     position:absolute;
-    top: 280px;
+    top: 283px;
     left: 250px;
 	font-size: 1.1em;
 }
 
 #intelligenceMod0, #intelligenceMod1, #intelligenceMod2, #intelligenceMod3{
     position:absolute;
-    top: 280px;
-    left: 275px;
+    top: 283px;
+    left: 285px;
 	font-size: 1.1em;
 }
 
@@ -161,22 +161,22 @@ Character 1
 
 #luck0, #luck1, #luck2, #luck3{
     position:absolute;
-    top: 306px;
+    top: 310px;
     left: 250px;
 	font-size: 1.1em;
 }
 
 #luckMod0, #luckMod1, #luckMod2, #luckMod3{
     position:absolute;
-    top: 306px;
-    left: 275px;
+    top: 310px;
+    left: 285px;
 	font-size: 1.1em;
 }
 
 
 #birthAugur0, #birthAugur1, #birthAugur2, #birthAugur3{
     position: absolute;
-    top: 160px;
+    top: 265px;
     left:  335px;
 	width: 120px;
     font-size: 0.85em;
@@ -300,8 +300,8 @@ Character 1
 
 #fumbleDie0, #fumbleDie1, #fumbleDie2, #fumbleDie3{
     position: absolute;
-    top: 113px;
-    left: 340px;
+    top: 130px;
+    left: 5px;
 	font-size: 1.2em;
 }
 
@@ -309,8 +309,8 @@ Character 1
 
 #critDie0, #critDie1, #critDie2, #critDie3{
     position: absolute;
-    top: 113px;
-    left: 260px;
+    top: 130px;
+    left: 55px;
 	font-size: 1.2em;
 }
 
@@ -381,9 +381,10 @@ Character 1
 
 #dieRollMethod0, #dieRollMethod1, #dieRollMethod2, #dieRollMethod3{
     position: absolute;
-    top: 592px;
-    left:  208px;
-	font-size: 0.6em;
+    top: 585px;
+    left:  272px;
+    font-size: 0.6em;
+    width: 190px;
 }
 
 
@@ -392,5 +393,5 @@ Character 1
     top: 460px;
     left:  220px;
 	width: 210px;
-	font-size: 0.8em;
+    font-size: 0.8em;
 }
