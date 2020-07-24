@@ -80,7 +80,7 @@ Character 1
 #languages0, #languages1, #languages2, #languages3{
     position: absolute;
     top: 185px;
-    left:  335px;
+    left:  355px;
 	width: 120px;
     font-size: 0.85em;
 }
@@ -90,7 +90,7 @@ Character 1
 #strength0, #strength1, #strength2, #strength3{
     position:absolute;
     top: 180px;
-    left: 250px;
+    left: 255px;
 	font-size: 1.1em;
 }
 
@@ -104,7 +104,7 @@ Character 1
 #agility0, #agility1, #agility2, #agility3{
     position:absolute;
     top: 206px;
-    left: 250px;
+    left: 255px;
 	font-size: 1.1em;
 }
 
@@ -118,7 +118,7 @@ Character 1
 #stamina0, #stamina1, #stamina2, #stamina3{
     position:absolute;
     top: 232px;
-    left: 250px;
+    left: 255px;
 	font-size: 1.1em;
 }
 
@@ -132,7 +132,7 @@ Character 1
 #personality0, #personality1, #personality2, #personality3{
     position:absolute;
     top: 257px;
-    left: 250px;
+    left: 255px;
 	font-size: 1.1em;
 }
 
@@ -146,7 +146,7 @@ Character 1
 #intelligence0, #intelligence1, #intelligence2, #intelligence3{
     position:absolute;
     top: 283px;
-    left: 250px;
+    left: 255px;
 	font-size: 1.1em;
 }
 
@@ -162,7 +162,7 @@ Character 1
 #luck0, #luck1, #luck2, #luck3{
     position:absolute;
     top: 310px;
-    left: 250px;
+    left: 255px;
 	font-size: 1.1em;
 }
 
@@ -177,7 +177,7 @@ Character 1
 #birthAugur0, #birthAugur1, #birthAugur2, #birthAugur3{
     position: absolute;
     top: 265px;
-    left:  335px;
+    left:  355px;
 	width: 120px;
     font-size: 0.85em;
 }
@@ -301,7 +301,7 @@ Character 1
 #fumbleDie0, #fumbleDie1, #fumbleDie2, #fumbleDie3{
     position: absolute;
     top: 130px;
-    left: 5px;
+    left: 305px;
 	font-size: 1.2em;
 }
 
@@ -310,7 +310,7 @@ Character 1
 #critDie0, #critDie1, #critDie2, #critDie3{
     position: absolute;
     top: 130px;
-    left: 55px;
+    left: 65px;
 	font-size: 1.2em;
 }
 

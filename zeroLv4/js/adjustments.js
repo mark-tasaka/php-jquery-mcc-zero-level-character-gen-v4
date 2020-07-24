@@ -1,5 +1,35 @@
 
+      /*getPhysicalDescription() returns the mutant appearance and subtypes
+      */
+	 function getPhysicalDescription(character){
+          
+		//var appearanceRoll = 29;
+		var appearanceRoll = Math.floor(Math.random() * 30);
+		var appearance = "";
+		
+		if(character === "Mutant" && appearanceRoll <= 27){
+			appearance = getMutantAppearance().mutation;
+		}
+		else if(character === "Mutant" && appearanceRoll >= 28){
+			appearance = getMutantAppearance().mutation + "<br />" + getMutantAppearance().mutation;
+		}
+		else if(character === "Manimal" && appearanceRoll <= 27){
+			appearance = getManimalType().features;
+		}
+		else if(character === "Manimal" && appearanceRoll >= 28){
+			appearance = getManimalType().features + "<br />" + getMutantAppearance().mutation;
+		}
+		else if(character === "Plantient" && appearanceRoll <= 28){
+			appearance = getPlantient().features;
+		}
+		else if(character === "Plantient" && appearanceRoll >= 29){
+			appearance = getManimalType().features + "<br />" + getMutantAppearance().mutation;
+		}
+		
+		return appearance;
+	}
 	  
+
 /* getBaseLanguages() returns the languages of the character based on genotype
 */
       

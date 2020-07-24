@@ -19,6 +19,10 @@
     <script type="text/javascript" src="js/luckySign.js"></script>
    <script type="text/javascript" src="js/adjustments.js"></script>
     
+    <script type="text/javascript" src="js/manimalAppearance.js"></script>
+    <script type="text/javascript" src="js/mutantAppearance.js"></script>
+    <script type="text/javascript" src="js/plantientAppearance.js"></script>
+    
     
 </head>
 <body>
@@ -232,7 +236,10 @@
            
            
 		<span id="critDie0"></span>
-		<!--<span id="critTable0"></span>-->
+        <!--<span id="critTable0"></span>-->
+        
+        
+        <span id="physicalDescription0"></span>
            
            <span id="wealth0"></span>
            
@@ -335,6 +342,8 @@
            
 		<span id="critDie1"></span>
 		<!--<span id="critTable1"></span>-->
+        
+        <span id="physicalDescription1"></span>
            
                       
            <span id="wealth1"></span>
@@ -438,7 +447,10 @@
             ?>
            </span>
            
-		<span id="critDie2"></span>
+        <span id="critDie2"></span>
+        
+        
+        <span id="physicalDescription2"></span>
            
                       
            <span id="wealth2"></span>
@@ -539,7 +551,10 @@
             ?>
            </span>
            
-		<span id="critDie3"></span>
+        <span id="critDie3"></span>
+        
+        
+        <span id="physicalDescription3"></span>
                       
            <span id="wealth3"></span>
            
@@ -701,6 +716,7 @@
             "tradeGoods": profession.tradeGoods,
 			"animal": addAnimal (profession),
 			"farmAnimal": hasFarmAnimal (profession),
+            "appearance": getPhysicalDescription(species),
 			"wealth": Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + 5 + " cp"
 			
 		
@@ -957,6 +973,8 @@
           $("#professionWeapon" + index).html(data[index].professionWeapon);
           
           $("#equipment" + index).html(data[index].startingItem);
+
+          //$("#physicalDescription" + index).html(data[index].appearance);
           
           $("#professionalWeaponDamage" + index).html(data[index].professionWeaponDam);
           $("#randomWeaponDamage" + index).html(data[index].randomWeaponDam);
