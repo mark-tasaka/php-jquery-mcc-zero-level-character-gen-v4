@@ -12,7 +12,7 @@ function getGenotype(){
     
     if(genotype >= 0 && genotype <=31)
         {
-            character = "P. Strain Human";
+            character = "Pure Strain Human";
         }
     else if(genotype >= 32 && genotype <= 65)
         {

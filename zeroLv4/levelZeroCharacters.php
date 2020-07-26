@@ -17,7 +17,7 @@
    <script type="text/javascript" src="js/occupation.js"></script>
     
     <script type="text/javascript" src="js/luckySign.js"></script>
-   <script type="text/javascript" src="js/adjustments.js"></script>
+<!--  <script type="text/javascript" src="js/adjustments.js"></script>-->
    <script type="text/javascript" src="js/adjustments2.js"></script>
     
     <script type="text/javascript" src="js/manimalAppearance.js"></script>
@@ -199,6 +199,11 @@
         <p id="armourClass0"> <span id="modifiedAC0"></span> (<span id="baseAC0"></span>)</p>
 
         <span id="hitPoints0"></span> 
+
+        
+        <span id="artifactCheck0"></span>
+           <span id="maxTech0"></span>
+           
         
         <span id="actionDice0">
             <?php
@@ -310,6 +315,10 @@
 
            
         <span id="hitPoints1"></span> 
+        
+           <span id="artifactCheck1"></span>
+           <span id="maxTech1"></span>
+           
         
         <span id="actionDice1">
             <?php
@@ -423,6 +432,10 @@
            
         <span id="hitPoints2"></span> 
         
+        <span id="artifactCheck2"></span>
+           <span id="maxTech2"></span>
+           
+        
         <span id="actionDice2">
             <?php
             echo 'd20';
@@ -531,6 +544,10 @@
 
         <span id="hitPoints3"></span> 
         
+        <span id="artifactCheck3"></span>
+           <span id="maxTech3"></span>
+           
+        
         <span id="actionDice3">
             <?php
             echo 'd20';
@@ -569,7 +586,7 @@
            
         <span id="critDie3"></span>
         
-        <span id="genotype2"></span>
+        <span id="genotype3"></span>
         
         
         <span id="physicalDescription3"></span>
@@ -692,9 +709,11 @@
     let bonusLanguages = getBonusLanguages(intelligenceModifier, birthAugur);
     let randomItem = addItem();
     let randomWeapon = addRandomWeapon();
-    let armour = getArmour(profession);
+    let maxTechLevel = getMaxTechLevel(intelligence);
+    let armour = getArmour(randomItem);
+    let armourClassBonus = getArmourACBonusString(randomItem);
 	let baseAC = getBaseArmourClass(agilityModifier)  + adjustAC(birthAugur, luckModifier);
-    let acBonus = getArmourProtection(armour);
+    let acBonus = getArmourACBonus(armour);
 		
 		let zeroLevelCharacter = {
 			"strength": strength,
@@ -732,18 +751,17 @@
             "startingItem": randomItem.item,
 			"fumbleDie": getFumbleDie (armour) + "" + addSign(adjustFumble(birthAugur, getLuckModifier(luck))),
             "armour": armour,
+            "acBonus": armourClassBonus,
             "genotype": species,
-            "raceTrait": addRaceAbilities(profession),
+           // "raceTrait": addRaceAbilities(profession),
             "acNoArmoured": baseAC,
             "acWithArmour": baseAC + acBonus,
+            "artifactCheck": "1d20" + addSign(intelligenceModifier),
+            "techLevel": maxTechLevel,
             "randomWeapon": randomWeapon.weapon,
             "randomWeaponDam": randomWeapon.damage,
             "tradeGoods": profession.equipment
-            /*
-			"animal": addAnimal (profession),
-			"farmAnimal": hasFarmAnimal (profession),
-			"wealth": Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + 5 + " cp"
-			*/
+           
 		
 			
 
@@ -1019,6 +1037,10 @@
           
           $("#randomWeapon" + index).html(data[index].randomWeapon);
           $("#randomWeaponDamage" + index).html(data[index].randomWeaponDam);
+          
+          
+          $("#artifactCheck" + index).html(data[index].artifactCheck);
+          $("#maxTech" + index).html(data[index].techLevel);
           
           
 

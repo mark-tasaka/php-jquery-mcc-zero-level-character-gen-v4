@@ -51,36 +51,41 @@ Character 1
 
 #name0, #name1, #name2, #name3{
     position: absolute;
-    top: 63px;
+    top: 65px;
     left: 55px;
+    font-size: 0.8em;
 }
 
 
 #profession0, #profession1, #profession2, #profession3{
     position: absolute;
-    top: 63px;
-    left: 270px;
+    top: 65px;
+    left: 280px;
+    font-size: 0.8em;
 }
 
 
 
 #genotype0, #genotype1, #genotype2, #genotype3{
     position: absolute;
-    top: 96px;
+    top: 99px;
     left: 55px;
+    font-size: 0.8em;
 }
 
 #alignment0, #alignment1, #alignment2, #alignment3{
     position: absolute;
-    top: 96px;
+    top: 99px;
     left: 195px;
+    font-size: 0.8em;
 }
 
 
 #sex0, #sex1, #sex2, #sex3{
     position: absolute;
-    top: 63px;
-    left: 210px;
+    top: 65px;
+    left: 215px;
+    font-size: 0.8em;
 }
 
 
@@ -322,6 +327,23 @@ Character 1
 }
 
 
+#artifactCheck0, #artifactCheck1, #artifactCheck2, #artifactCheck3{
+    position: absolute;
+    top: 130px;
+    left: 150px;
+	font-size: 1.2em;
+}
+
+
+#maxTech0, #maxTech1, #maxTech2, #maxTech3{
+    position: absolute;
+    top: 130px;
+    left: 230px;
+	font-size: 1.2em;
+}
+
+
+
 #physicalDescription0, #physicalDescription1, #physicalDescription2, #physicalDescription3{
     position: absolute;
     top: 358px;
@@ -349,15 +371,15 @@ Character 1
 
 #armour0, #armour1, #armour2, #armour3{
     position: absolute;
-    top: 320px;
-    left:  225px;
+    top: 460px;
+    left:  55px;
 	font-size: 0.8em;
 }
 
 #acBonus0, #acBonus1, #acBonus2, #acBonus3{
     position: absolute;
-    top: 185px;
-    left:  385px;
+    top: 460px;
+    left:  168px;
 	font-size: 0.8em;
 }
 
