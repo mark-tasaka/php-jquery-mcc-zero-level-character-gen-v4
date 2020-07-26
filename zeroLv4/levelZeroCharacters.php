@@ -18,6 +18,7 @@
     
     <script type="text/javascript" src="js/luckySign.js"></script>
    <script type="text/javascript" src="js/adjustments.js"></script>
+   <script type="text/javascript" src="js/adjustments2.js"></script>
     
     <script type="text/javascript" src="js/manimalAppearance.js"></script>
     <script type="text/javascript" src="js/mutantAppearance.js"></script>
@@ -237,6 +238,9 @@
            
 		<span id="critDie0"></span>
         <!--<span id="critTable0"></span>-->
+
+        
+        <span id="genotype0"></span>
         
         
         <span id="physicalDescription0"></span>
@@ -253,9 +257,11 @@
 		   
            <span id="weaponDamage0"><span id="professionalWeaponDamage0"></span><span id="randomWeaponDamage0"><span id="randomWeaponDamageAdjustment"></span></span></span>
            
-           <span id="equipment0"></span>
            
+           <div id="totalEquipment0">
+           <span id="equipment0"></span>
            <span id="tradeGood0"></span>
+            </div>
            
            <span id="armour0"></span>
            <span id="acBonus0"></span>
@@ -343,6 +349,8 @@
 		<span id="critDie1"></span>
 		<!--<span id="critTable1"></span>-->
         
+        <span id="genotype1"></span>
+        
         <span id="physicalDescription1"></span>
            
                       
@@ -358,8 +366,11 @@
 		   
            <span id="weaponDamage1"><span id="professionalWeaponDamage1"></span><span id="randomWeaponDamage1"><span id="randomWeaponDamageAdjustment"></span></span></span>
            
+           
+           <div id="totalEquipment1">
            <span id="equipment1"></span>
            <span id="tradeGood1"></span>
+            </div>
            
            <span id="armour1"></span>
            <span id="acBonus1"></span>
@@ -449,6 +460,8 @@
            
         <span id="critDie2"></span>
         
+        <span id="genotype2"></span>
+        
         
         <span id="physicalDescription2"></span>
            
@@ -465,8 +478,11 @@
 		   
            <span id="weaponDamage2"><span id="professionalWeaponDamage2"></span><span id="randomWeaponDamage2"><span id="randomWeaponDamageAdjustment"></span></span></span>
            
+           
+           <div id="totalEquipment2">
            <span id="equipment2"></span>
            <span id="tradeGood2"></span>
+            </div>
            
            <span id="armour2"></span>
            <span id="acBonus2"></span>
@@ -553,6 +569,8 @@
            
         <span id="critDie3"></span>
         
+        <span id="genotype2"></span>
+        
         
         <span id="physicalDescription3"></span>
                       
@@ -568,8 +586,10 @@
 		   
            <span id="weaponDamage3"><span id="professionalWeaponDamage3"></span><span id="randomWeaponDamage3"><span id="randomWeaponDamageAdjustment"></span></span></span>
            
+           <div id="totalEquipment3">
            <span id="equipment3"></span>
            <span id="tradeGood3"></span>
+            </div>
            
            <span id="armour3"></span>
            <span id="acBonus3"></span>
@@ -659,18 +679,19 @@
     let	personality = rollDice(<?php echo $diceSides ?>, <?php echo $diceRolled ?>, <?php echo $diceRemoved ?>, <?php echo $dieValueAdded ?>);
     let	intelligence = rollDice(<?php echo $diceSides ?>, <?php echo $diceRolled ?>, <?php echo $diceRemoved ?>, <?php echo $dieValueAdded ?>);
     let	luck = rollDice(<?php echo $diceSides ?>, <?php echo $diceRolled ?>, <?php echo $diceRemoved ?>, <?php echo $dieValueAdded ?>);
-	let	profession = getOccupation();
+	let	profession = getProfession();
 	let birthAugur = getLuckySign();
+    let species = getGenotype();
 	let strengthModifier = getStrengthModifier(strength);
 	let staminaModifier = getStaminaModifier(stamina);
 	let agilityModifier = getAgilityModifier(agility);
 	let personalityModifier = getPersonalityModifier(personality);
 	let intelligenceModifier = getIntelligenceModifier(intelligence);
     let luckModifier = getLuckModifier(luck);
-    let species = profession.race;
-    let language = getBaseLanguages(species, intelligence, luckModifier, species);
+    let language = getBaseLanguages(species, intelligence);
     let bonusLanguages = getBonusLanguages(intelligenceModifier, birthAugur);
-    let randomItem = getStartingEquipment();
+    let randomItem = addItem();
+    let randomWeapon = addRandomWeapon();
     let armour = getArmour(profession);
 	let baseAC = getBaseArmourClass(agilityModifier)  + adjustAC(birthAugur, luckModifier);
     let acBonus = getArmourProtection(armour);
@@ -688,7 +709,7 @@
 			"personalityModifier": personalityModifier,
 			"intelligenceModifier": intelligenceModifier,
 			"luckModifier":  getLuckModifier(luck),
-			"profession":  profession.occupation,
+			"profession":  profession.role,
 			"luckySign": birthAugur.luckySign,
 			"luckyRoll": birthAugur.luckyRoll,
             "luckySignBonus": getLuckModifier(luck),
@@ -705,20 +726,24 @@
             "baseLanguage": language,
             "addLanguages": bonusLanguages,
 			"speed": getSpeed(species) + addLuckToSpeed(birthAugur, getLuckModifier(luck)) + "'",
-            "professionWeapon": profession.trainedWeapon,
+            "appearance": getPhysicalDescription(species),
+            "professionWeapon": profession.weapon,
             "professionWeaponDam": profession.damage,
-            "startingItem": randomItem.equipment,
+            "startingItem": randomItem.item,
 			"fumbleDie": getFumbleDie (armour) + "" + addSign(adjustFumble(birthAugur, getLuckModifier(luck))),
             "armour": armour,
+            "genotype": species,
             "raceTrait": addRaceAbilities(profession),
             "acNoArmoured": baseAC,
             "acWithArmour": baseAC + acBonus,
-            "tradeGoods": profession.tradeGoods,
+            "randomWeapon": randomWeapon.weapon,
+            "randomWeaponDam": randomWeapon.damage,
+            "tradeGoods": profession.equipment
+            /*
 			"animal": addAnimal (profession),
 			"farmAnimal": hasFarmAnimal (profession),
-            "appearance": getPhysicalDescription(species),
 			"wealth": Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + Math.floor((Math.random() * 12)) + 5 + " cp"
-			
+			*/
 		
 			
 
@@ -920,6 +945,8 @@
           
           $("#profession" + index).html(data[index].profession);
           
+          $("#genotype" + index).html(data[index].genotype);
+          
           $("#strength" + index).html(data[index].strength);
           $("#strengthMod" + index).html(addModifierSign(data[index].strengthModifier));
           
@@ -983,12 +1010,15 @@
           
           
 	  
-	    $("#animal" + index ).html(data[index].animal); 
-          $("#farmAnimal" + index).html(data[index].farmAnimal);
+	  /*  $("#animal" + index ).html(data[index].animal); 
+          $("#farmAnimal" + index).html(data[index].farmAnimal);*/
           
           $("#tradeGood" + index).html(data[index].tradeGoods);
-          $("#raceAbility" + index).html(data[index].raceTrait);
+          //$("#raceAbility" + index).html(data[index].raceTrait);
           $("#wealth" + index).html(data[index].wealth);
+          
+          $("#randomWeapon" + index).html(data[index].randomWeapon);
+          $("#randomWeaponDamage" + index).html(data[index].randomWeaponDam);
           
           
 

@@ -63,6 +63,13 @@ Character 1
 }
 
 
+
+#genotype0, #genotype1, #genotype2, #genotype3{
+    position: absolute;
+    top: 96px;
+    left: 55px;
+}
+
 #alignment0, #alignment1, #alignment2, #alignment3{
     position: absolute;
     top: 96px;
@@ -362,21 +369,22 @@ Character 1
 }
 
 
-#equipment0, #equipment1, #equipment2, #equipment3{
+#totalEquipment0, #totalEquipment1, #totalEquipment2, #totalEquipment3{
     position: absolute;
     top: 509px;
     left:  55px;
-	font-size: 0.8em;
+    font-size: 0.8em;
+    width: 150px;
 }
 
 
-
+/*
 #tradeGood0, #tradeGood1, #tradeGood2, #tradeGood3{
     position: absolute;
     top: 525px;
     left:  55px;
 	font-size: 0.8em;
-}
+}*/
 
 
 #dieRollMethod0, #dieRollMethod1, #dieRollMethod2, #dieRollMethod3{
