@@ -259,6 +259,28 @@ function addItem(){
           return fumbleDie;
       }
       
+      
+                  
+      /*getFumbleDie()
+      */
+     function getArmourFumbleDie(item){
+        var fumbleDie = "d4";
+        
+        if(item.id === 1){
+            fumbleDie = "d8";
+        }
+        else if(item.id === 2){
+            fumbleDie = "d12";
+        }
+        else if(item.id === 3 || item.id === 4){
+            fumbleDie = "d8";
+        }
+        else{
+            fumbleDie = "";
+        }
+        return fumbleDie;
+    }
+    
 
 
 

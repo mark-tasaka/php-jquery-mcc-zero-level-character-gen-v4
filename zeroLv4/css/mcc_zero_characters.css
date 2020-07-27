@@ -312,44 +312,44 @@ Character 1
 
 #fumbleDie0, #fumbleDie1, #fumbleDie2, #fumbleDie3{
     position: absolute;
-    top: 130px;
+    top: 133px;
     left: 305px;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 
 
 #critDie0, #critDie1, #critDie2, #critDie3{
     position: absolute;
-    top: 130px;
+    top: 133px;
     left: 65px;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 
 #artifactCheck0, #artifactCheck1, #artifactCheck2, #artifactCheck3{
     position: absolute;
-    top: 130px;
+    top: 133px;
     left: 150px;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 
 #maxTech0, #maxTech1, #maxTech2, #maxTech3{
     position: absolute;
-    top: 130px;
+    top: 133px;
     left: 230px;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 
 
 #physicalDescription0, #physicalDescription1, #physicalDescription2, #physicalDescription3{
     position: absolute;
-    top: 358px;
-    left:  325px;
-    width: 140px;
-    font-size: 0.85em;
+    top: 378px;
+    left:  275px;
+    width: 160px;
+    font-size: 0.9em;
 }
 
 
@@ -385,8 +385,8 @@ Character 1
 
 #armourFumble0, #armourFumble1, #armourFumble2, #armourFumble3{
     position: absolute;
-    top: 185px;
-    left:  432px;
+    top: 460px;
+    left:  205px;
 	font-size: 0.8em;
 }
 

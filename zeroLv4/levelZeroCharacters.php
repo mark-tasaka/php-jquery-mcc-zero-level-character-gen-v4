@@ -17,7 +17,7 @@
    <script type="text/javascript" src="js/occupation.js"></script>
     
     <script type="text/javascript" src="js/luckySign.js"></script>
-<!--  <script type="text/javascript" src="js/adjustments.js"></script>-->
+  <script type="text/javascript" src="js/archaicAlignment.js"></script>
    <script type="text/javascript" src="js/adjustments2.js"></script>
     
     <script type="text/javascript" src="js/manimalAppearance.js"></script>
@@ -34,7 +34,6 @@
     
     include 'php/characterSex.php';
     include 'php/characterName.php';
-    include 'php/alignment.php';
     include 'php/diceRoll.php';
     include 'php/message.php';
     
@@ -66,19 +65,19 @@
             $nameOption = $_POST["theCharacterName"];
     
         }
-    
-            
-        if(isset($_POST["theAlignment"]))
-        {
-            $alignOption = $_POST["theAlignment"];
-        }
-    
-        $characterAlignment0 = getAlignment($alignOption);
-        $characterAlignment1 = getAlignment($alignOption);
-        $characterAlignment2 = getAlignment($alignOption);
-        $characterAlignment3 = getAlignment($alignOption);
 
         
+        if(isset($_POST['theCheckBoxAlignment']) && $_POST['theCheckBoxAlignment'] == 1) 
+        {
+            $archaicAlignmentChoice = 1;
+        }
+        else
+        {
+            $archaicAlignmentChoice = 0;
+        } 
+
+
+
         if(isset($_POST["theAbilityScore"]))
         {
             $abilityScoreGen = $_POST["theAbilityScore"];
@@ -163,7 +162,7 @@
     
     
     
-<!--Version 3: JQuery  -->
+<!--Version 4: JQuery  -->
 	
 
   <img id="character_sheet"/>
@@ -200,6 +199,8 @@
 
         <span id="hitPoints0"></span> 
 
+        <span id="physicalDescription0"></span>
+
         
         <span id="artifactCheck0"></span>
            <span id="maxTech0"></span>
@@ -233,30 +234,20 @@
            
            
         <span id="alignment0">
-           <?php
-            
-            echo $characterAlignment0;
-            
-            ?>
            </span>
            
            
 		<span id="critDie0"></span>
-        <!--<span id="critTable0"></span>-->
 
         
         <span id="genotype0"></span>
         
-        
-        <span id="physicalDescription0"></span>
            
            <span id="wealth0"></span>
            
            <span id="languages0"><span id="baseLanguage0"></span><span id="addLanguages0"></span></span>
 		 
            <span id="speed0"></span>
-           
-           <span id="physicalDescription0"></span>
            
            <span id="weapons0"><span id="professionWeapon0"></span><span id="randomWeapon0"></span></span>
 		   
@@ -315,6 +306,8 @@
 
            
         <span id="hitPoints1"></span> 
+
+        <span id="physicalDescription1"></span>
         
            <span id="artifactCheck1"></span>
            <span id="maxTech1"></span>
@@ -348,20 +341,11 @@
            </span>
            
         <span id="alignment1">
-           <?php
-            
-            echo $characterAlignment1;
-            
-            ?>
            </span>
            
 		<span id="critDie1"></span>
-		<!--<span id="critTable1"></span>-->
         
         <span id="genotype1"></span>
-        
-        <span id="physicalDescription1"></span>
-           
                       
            <span id="wealth1"></span>
            
@@ -369,7 +353,6 @@
 		 
            <span id="speed1"></span>
            
-           <span id="physicalDescription1"></span>
            
            <span id="weapons1"><span id="professionWeapon1"></span><span id="randomWeapon1"></span></span>
 		   
@@ -432,6 +415,9 @@
            
         <span id="hitPoints2"></span> 
         
+
+        <span id="physicalDescription2"></span>
+        
         <span id="artifactCheck2"></span>
            <span id="maxTech2"></span>
            
@@ -464,11 +450,6 @@
            </span>
            
         <span id="alignment2">
-           <?php
-            
-            echo $characterAlignment2;
-            
-            ?>
            </span>
            
         <span id="critDie2"></span>
@@ -476,8 +457,6 @@
         <span id="genotype2"></span>
         
         
-        <span id="physicalDescription2"></span>
-           
                       
            <span id="wealth2"></span>
            
@@ -485,7 +464,6 @@
 		 
            <span id="speed2"></span>
            
-           <span id="physicalDescription2"></span>
            
            <span id="weapons2"><span id="professionWeapon2"></span><span id="randomWeapon2"></span></span>
 		   
@@ -544,6 +522,9 @@
 
         <span id="hitPoints3"></span> 
         
+
+        <span id="physicalDescription3"></span>
+        
         <span id="artifactCheck3"></span>
            <span id="maxTech3"></span>
            
@@ -576,28 +557,19 @@
            </span>
            
            
-        <span id="alignment3">
-           <?php
-            
-            echo $characterAlignment3;
-            
-            ?>
-           </span>
+        <span id="alignment3"> </span>
            
         <span id="critDie3"></span>
         
         <span id="genotype3"></span>
         
         
-        <span id="physicalDescription3"></span>
-                      
            <span id="wealth3"></span>
            
            <span id="languages3"><span id="baseLanguage3"></span><span id="addLanguages3"></span></span>
 		 
            <span id="speed3"></span>
            
-           <span id="physicalDescription3"></span>
            
            <span id="weapons3"><span id="professionWeapon3"></span><span id="randomWeapon3"></span></span>
 		   
@@ -713,7 +685,8 @@
     let armour = getArmour(randomItem);
     let armourClassBonus = getArmourACBonusString(randomItem);
 	let baseAC = getBaseArmourClass(agilityModifier)  + adjustAC(birthAugur, luckModifier);
-    let acBonus = getArmourACBonus(armour);
+    let acBonus = getArmourACBonus(randomItem);
+    let archaicAlignment = getArchaiAlignment(<?php echo $archaicAlignmentChoice ?>, species);
 		
 		let zeroLevelCharacter = {
 			"strength": strength,
@@ -741,7 +714,7 @@
             "meleeDamage": strengthModifier + meleeDamageAdjust(birthAugur, getLuckModifier(luck)),
 			"range": agilityModifier + rangeAdjust(birthAugur, getLuckModifier(luck)),
 			"rangeDamage": rangeDamageAdjust(birthAugur, getLuckModifier(luck)),
-			"critDie": "d4" + addSign(adjustCrit(birthAugur, getLuckModifier(luck))) + "/I",
+			"critDie": "d4" + addSign(adjustCrit(birthAugur, getLuckModifier(luck))) + " / I",
             "baseLanguage": language,
             "addLanguages": bonusLanguages,
 			"speed": getSpeed(species) + addLuckToSpeed(birthAugur, getLuckModifier(luck)) + "'",
@@ -749,11 +722,12 @@
             "professionWeapon": profession.weapon,
             "professionWeaponDam": profession.damage,
             "startingItem": randomItem.item,
-			"fumbleDie": getFumbleDie (armour) + "" + addSign(adjustFumble(birthAugur, getLuckModifier(luck))),
+			"fumbleDie": getFumbleDie (randomItem) + "" + addSign(adjustFumble(birthAugur, getLuckModifier(luck))),
             "armour": armour,
             "acBonus": armourClassBonus,
+            "armourFumble": getArmourFumbleDie (randomItem),
             "genotype": species,
-           // "raceTrait": addRaceAbilities(profession),
+            "archaicAlignment": archaicAlignment,
             "acNoArmoured": baseAC,
             "acWithArmour": baseAC + acBonus,
             "artifactCheck": "1d20" + addSign(intelligenceModifier),
@@ -1005,11 +979,11 @@
           $("#rangeDamage" + index).html(addModifierSign(data[index].rangeDamage));
           
           $("#fumbleDie" + index).html(data[index].fumbleDie);
+          $("#armourFumble" + index).html(data[index].armourFumble);
+          
           
           $("#critDie" + index).html(data[index].critDie);
-         // $("#critTable" + index).html(data[index].critTable);
-          
-          
+
           $("#baseLanguage" + index).html(data[index].baseLanguage);
           $("#addLanguages" + index).html(data[index].addLanguages);
           
@@ -1019,7 +993,7 @@
           
           $("#equipment" + index).html(data[index].startingItem);
 
-          //$("#physicalDescription" + index).html(data[index].appearance);
+          $("#physicalDescription" + index).html(data[index].appearance);
           
           $("#professionalWeaponDamage" + index).html(data[index].professionWeaponDam);
           $("#randomWeaponDamage" + index).html(data[index].randomWeaponDam);
@@ -1027,12 +1001,7 @@
           $("#acBonus" + index).html(data[index].acBonus);
           
           
-	  
-	  /*  $("#animal" + index ).html(data[index].animal); 
-          $("#farmAnimal" + index).html(data[index].farmAnimal);*/
-          
           $("#tradeGood" + index).html(data[index].tradeGoods);
-          //$("#raceAbility" + index).html(data[index].raceTrait);
           $("#wealth" + index).html(data[index].wealth);
           
           $("#randomWeapon" + index).html(data[index].randomWeapon);
@@ -1041,6 +1010,9 @@
           
           $("#artifactCheck" + index).html(data[index].artifactCheck);
           $("#maxTech" + index).html(data[index].techLevel);
+
+          
+          $("#alignment" + index).html(data[index].archaicAlignment);
           
           
 
